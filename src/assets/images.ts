@@ -1,0 +1,16 @@
+export const images = {
+  ExpressoTradicional: 'src/assets/Expresso.svg',
+  ExpressoCremoso: 'src/assets/Expresso Cremoso.svg',
+  ExpressoAmericano: 'src/assets/Americano.svg',
+  ExpressoGelado: 'src/assets/Café Gelado.svg',
+  CafeComLeite: 'src/assets/Café com Leite.svg',
+  Latte: 'src/assets/Latte.svg',
+  Capuccino: 'src/assets/Capuccino.svg',
+  Machiatto: 'src/assets/Macchiato.svg',
+  Mocaccino: 'src/assets/Mochaccino.svg',
+  ChocolateQuente: 'src/assets/Chocolate Quente.svg',
+  Cubano: 'src/assets/Cubano.svg',
+  Havaiano: 'src/assets/Havaiano.svg',
+  Arabe: 'src/assets/Árabe.svg',
+  Irlandes: 'src/assets/Irlandês.svg',
+}
