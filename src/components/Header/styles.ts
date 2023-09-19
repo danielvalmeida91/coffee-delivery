@@ -1,47 +1,57 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
+  width: 100%;
+  height: 6.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
-  padding: 2rem 10rem;
-
-  height: 6.5rem;
-
-  div {
+  > div {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-
-    > span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.25rem;
-
-      padding: 0.625rem 0.5rem;
-
-      color: ${(props) => props.theme['purple-900']};
-      background: ${(props) => props.theme['purple-100']};
-
-      border-radius: 8px;
-    }
-
-    > button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 2.375rem;
-      height: 2.375rem;
-
-      border: 0;
-      border-radius: 8px;
-
-      color: ${(props) => props.theme['yellow-900']};
-      background: ${(props) => props.theme['yellow-100']};
-    }
+    justify-content: space-between;
   }
+`
+
+export const HeaderButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.75rem;
+`
+interface HeaderButtonProps {
+  variant: 'purple' | 'yellow'
+}
+
+export const HeaderButton = styled.button<HeaderButtonProps>`
+  min-width: 2.375rem;
+  height: 2.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  border-radius: 6px;
+  border: none;
+  padding: 0 0.5rem;
+  font-size: ${({ theme }) => theme.textSizes['text-regular-m']};
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  ${({ variant, theme }) => css`
+    background: ${theme.colors[`brand-${variant}-light`]};
+    color: ${theme.colors[`brand-${variant}-dark`]};
+  `}
+
+  ${({ variant }) =>
+    variant === 'purple' &&
+    css`
+      svg {
+        color: ${({ theme }) => theme.colors['brand-purple']};
+      }
+    `}
 `

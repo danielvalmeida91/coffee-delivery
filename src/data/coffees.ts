@@ -1,32 +1,23 @@
-import {
-  // AmountButton,
-  Card,
-  Tag,
-  CardsContainer,
-  // CartButton,
-  Price,
-  PriceContainer,
-  // Quantities,
-  Container,
-  TagContainer,
-} from './styles'
-
-import { images } from '../../../../assets/images'
-
-// import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react'
-import { Amount } from '../../../../components/Amount'
-import { useState } from 'react'
-
-interface CardProps {
-  img: string
-  tag: string[]
-  title: string
-  description: string
-  value: number
+export const images = {
+  ExpressoTradicional: 'src/assets/Expresso.svg',
+  ExpressoCremoso: 'src/assets/Expresso Cremoso.svg',
+  ExpressoAmericano: 'src/assets/Americano.svg',
+  ExpressoGelado: 'src/assets/Café Gelado.svg',
+  CafeComLeite: 'src/assets/Café com Leite.svg',
+  Latte: 'src/assets/Latte.svg',
+  Capuccino: 'src/assets/Capuccino.svg',
+  Machiatto: 'src/assets/Macchiato.svg',
+  Mocaccino: 'src/assets/Mochaccino.svg',
+  ChocolateQuente: 'src/assets/Chocolate Quente.svg',
+  Cubano: 'src/assets/Cubano.svg',
+  Havaiano: 'src/assets/Havaiano.svg',
+  Arabe: 'src/assets/Árabe.svg',
+  Irlandes: 'src/assets/Irlandês.svg',
 }
 
-export const coffees: CardProps[] = [
+export const coffees = [
   {
+    id: 1,
     img: images.ExpressoTradicional,
     title: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
@@ -34,6 +25,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL', 'PURO', 'CHOCOLATE'],
   },
   {
+    id: 2,
     img: images.ExpressoAmericano,
     title: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
@@ -41,6 +33,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL'],
   },
   {
+    id: 3,
     img: images.ExpressoCremoso,
     title: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
@@ -48,6 +41,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL'],
   },
   {
+    id: 4,
     img: images.ExpressoGelado,
     title: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
@@ -55,6 +49,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL', 'GELADO'],
   },
   {
+    id: 5,
     img: images.CafeComLeite,
     title: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
@@ -62,6 +57,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL', 'COM LEITE'],
   },
   {
+    id: 6,
     img: images.Latte,
     title: 'Latte',
     description:
@@ -70,6 +66,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL', 'COM LEITE'],
   },
   {
+    id: 7,
     img: images.Capuccino,
     title: 'Capuccino',
     description:
@@ -78,6 +75,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL', 'COM LEITE'],
   },
   {
+    id: 8,
     img: images.Machiatto,
     title: 'Machiatto',
     description:
@@ -86,6 +84,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL', 'COM LEITE'],
   },
   {
+    id: 9,
     img: images.Mocaccino,
     title: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
@@ -93,6 +92,7 @@ export const coffees: CardProps[] = [
     tag: ['TRADICIONAL', 'COM LEITE'],
   },
   {
+    id: 10,
     img: images.ChocolateQuente,
     title: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
@@ -100,6 +100,7 @@ export const coffees: CardProps[] = [
     tag: ['ESPECIAL', 'COM LEITE'],
   },
   {
+    id: 11,
     img: images.Cubano,
     title: 'Cubano',
     description:
@@ -108,6 +109,7 @@ export const coffees: CardProps[] = [
     tag: ['ESPECIAL', 'ALCÓLICO', 'GELADO'],
   },
   {
+    id: 12,
     img: images.Havaiano,
     title: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
@@ -115,6 +117,7 @@ export const coffees: CardProps[] = [
     tag: ['ESPECIAL'],
   },
   {
+    id: 13,
     img: images.Arabe,
     title: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
@@ -122,6 +125,7 @@ export const coffees: CardProps[] = [
     tag: ['ESPECIAL'],
   },
   {
+    id: 14,
     img: images.Irlandes,
     title: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
@@ -129,45 +133,3 @@ export const coffees: CardProps[] = [
     tag: ['ESPECIAL', 'ALCÓLICO'],
   },
 ]
-
-export function Cards() {
-  const [amount, setAmount] = useState<number>(0)
-
-  function handleSetAmount() {
-    setAmount(amount + 1)
-  }
-
-  return (
-    <CardsContainer>
-      <h1>Nossos cafés</h1>
-      <Container>
-        {coffees &&
-          coffees.map((coffee) => (
-            <Card key={coffee.title}>
-              <img src={coffee.img} alt="" />
-              <TagContainer>
-                {coffee.tag.map((item) => (
-                  <Tag key={item}>{item}</Tag>
-                ))}
-              </TagContainer>
-
-              <h2>{coffee.title}</h2>
-              <p>{coffee.description}</p>
-              <PriceContainer>
-                <Price>
-                  <span>
-                    &nbsp;
-                    {new Intl.NumberFormat('pt-BR', {
-                      style: 'currency',
-                      currency: 'BRL',
-                    }).format(coffee.value)}
-                  </span>
-                </Price>
-                <Amount amount={amount} setAmount={handleSetAmount} />
-              </PriceContainer>
-            </Card>
-          ))}
-      </Container>
-    </CardsContainer>
-  )
-}

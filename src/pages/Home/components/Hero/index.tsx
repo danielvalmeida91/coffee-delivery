@@ -1,55 +1,59 @@
 import {
+  HeroBenefitsContainer,
   HeroContainer,
   HeroContent,
-  HeroImage,
-  HeroTags,
-  HeroTagsContainer,
   HeroTitle,
 } from './styles'
 import { Timer, ShoppingCart, Package, Coffee } from '@phosphor-icons/react'
 import Banner from '../../../../assets/banner-hero.svg'
+import { RegularText } from '../../../../components/Typography'
+import { InfoIcon } from '../../../../components/InfoIcon'
+import { useTheme } from 'styled-components'
 
 export function Hero() {
+  const { colors } = useTheme()
   return (
     <HeroContainer>
-      <HeroContent>
-        <HeroTitle>
-          <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-          <p>
-            Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
-            hora
-          </p>
-        </HeroTitle>
-        <HeroTagsContainer>
-          <div>
-            <HeroTags bgcolor="yellowDark">
-              <ShoppingCart weight="fill" size={16} />
-              <p>Compra simples e segura</p>
-            </HeroTags>
-            <HeroTags bgcolor="yellow">
-              <Timer weight="fill" size={16} />
-              <p>Entrega rápida e rastreada</p>
-            </HeroTags>
-          </div>
-          <div>
-            <HeroTags bgcolor="gray">
-              <Package weight="fill" size={16} />
-              <p>Embalagem mantém o café intacto</p>
-            </HeroTags>
-            <HeroTags bgcolor="purple">
-              <Coffee weight="fill" size={16} />
-              <p>O café chega fresquinho até você</p>
-            </HeroTags>
-          </div>
-        </HeroTagsContainer>
-      </HeroContent>
+      <HeroContent className="container">
+        <div>
+          <section>
+            <HeroTitle size="xl">
+              Encontre o café perfeito para qualquer hora do dia
+            </HeroTitle>
+            <RegularText size="l" color="subtitle" as="h3">
+              Com o Coffee Delivery você recebe seu café onde estiver, a
+              qualquer hora
+            </RegularText>
+          </section>
+          <HeroBenefitsContainer>
+            <InfoIcon
+              iconBackground={colors['brand-yellow-dark']}
+              icon={<ShoppingCart weight="fill" />}
+              text="Compra simples e segura"
+            />
+            <InfoIcon
+              iconBackground={colors['base-text']}
+              icon={<Package weight="fill" />}
+              text="Embalagem mantém o café intacto"
+            />
+            <InfoIcon
+              iconBackground={colors['brand-yellow']}
+              icon={<Timer weight="fill" />}
+              text="Entrega rápida e rastreada"
+            />
+            <InfoIcon
+              iconBackground={colors['brand-purple']}
+              icon={<Coffee weight="fill" />}
+              text="O café chega fresquinho até você"
+            />
+          </HeroBenefitsContainer>
+        </div>
 
-      <HeroImage>
         <img
           src={Banner}
           alt="Um copo de café com alguns grãos de café e acessórios em torno do copo."
         />
-      </HeroImage>
+      </HeroContent>
     </HeroContainer>
   )
 }
