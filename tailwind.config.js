@@ -40,6 +40,21 @@ export default {
       'title-m': '1.5rem',
       'title-l': '2rem',
       'title-xl': '3rem',
+      xs: ['0.75rem', {
+        lineHeight: '130%'
+      }],
+      s: ['0.875rem', {
+        lineHeight: '130%'
+      }],
+      m: ['1.125rem', {
+        lineHeight: '130%',
+        fontWeight: 'bold'
+      }],
+      l: ['1.25rem', {
+        lineHeight: '130%',
+        fontWeight: 'bold'
+      }],
+      
       }
     },
   plugins: [],
