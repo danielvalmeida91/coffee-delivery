@@ -5,10 +5,10 @@ import { ShoppingCart } from '@phosphor-icons/react'
 
 export const App = () => {
   return (
-    <div className='h-screen max-w-[1440px] bg-base-white flex mx-auto'>
+    <div className='h-screen bg-base-white flex-col mx-auto'>
       
-    <header>
-      <nav className="h-[104px] w-full p-5 flex content-between">
+    <header className='w-full'>
+      <nav className="p-5 flex justify-between">
         <Logo />
         <div className='flex gap-2'>
           <Localization />
@@ -24,6 +24,13 @@ export const App = () => {
         </div>
       </nav>
     </header>
+
+    <div id="hero" className='bg-heroBackground bg-blend-overlay bg-cover w-full h-[544px] flex'>
+      <div>
+        <p className='font-display font-bold text-title-xl text-base-title'>Encontre o café perfeito para qualquer hora do dia</p>
+      </div>
+        
+    </div>
     </div>
   )
 }

@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        heroBackground: "url('src/assets/hero-background.png')",
+      }
+    },
     colors : {
       yellow: {
         DEFAULT: '#DBAC2C',
